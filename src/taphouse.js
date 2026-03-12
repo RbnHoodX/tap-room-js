@@ -63,13 +63,13 @@ class TapHouse {
   }
 
   pour(kegName, tabName, amount, memo = '') {
-    if (amount <= 0) {
-      throw new Error('amount must be positive');
-    }
     const keg = this.getKeg(kegName);
     const tab = this.getTab(tabName);
     const entry = new Dispensation(keg, tab, amount, memo);
     this._barLog.record(entry);
+    if (amount <= 0) {
+      throw new Error('amount must be positive');
+    }
     return entry;
   }
 
