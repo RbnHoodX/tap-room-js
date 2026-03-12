@@ -1,0 +1,6 @@
+{
+  "name": "tap-room",
+  "version": "1.0.0",
+  "description": "A tap room management system tracking kegs and customer tabs",
+  "main": "src/index.js"
+}
