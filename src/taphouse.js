@@ -77,6 +77,10 @@ class TapHouse {
     return this._barLog.entries();
   }
 
+  _collectSubTabs(tab) {
+    return [tab, ...tab.children()];
+  }
+
   totalPoured() {
     let total = 0;
     for (const d of this._barLog.entries()) {
