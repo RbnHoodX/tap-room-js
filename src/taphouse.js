@@ -35,6 +35,17 @@ class TapHouse {
     return tab;
   }
 
+  openSubTab(parentName, childName, limit) {
+    const parent = this.getTab(parentName);
+    if (this._tabs.has(childName)) {
+      throw new Error(`tab '${childName}' already exists`);
+    }
+    const child = new Tab(childName, limit);
+    this._tabs.set(childName, child);
+    parent._addChild(child);
+    return child;
+  }
+
   getTab(name) {
     const tab = this._tabs.get(name);
     if (!tab) {
